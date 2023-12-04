@@ -7,12 +7,14 @@ const server:Express = express();
 const port = process.env.PORT ?? 4444;
 
 /* MIDDLEWARES START */
-server.use(morgan("short"));
+server.use(morgan("tiny"));
 
 server.use(cors({
     origin:`http://localhost:${port}`,
     credentials:true,
 }as CorsOptions))
+
+server.use(express.json());
 /* MIDDLEWARES END */
 
 /* ROUTERS START */
